@@ -13,21 +13,24 @@
 
 
 
-    function styles() {
+    function sassCompile() {
         return gulp.src('src/sass/main.scss', {allowempty : true})
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('src/css'))
-        .pipe(gulp.src('src/css/main.css'))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('src/css/main.css'))
     };
+
+    function autoprefix() {
+        return gulp.src('src/css/main.css')
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('src/css'))
+    }
     
 
 
     function watchFiles() {
         console.log("\r\n Watching Sass files \r\n");
-        gulp.watch('src/**/*.scss', styles);
+        gulp.watch('src/**/*.scss', gulp.series(sassCompile, autoprefix));
     }
 
-exports.default = styles;
+exports.styles = gulp.series(sassCompile,autoprefix);
 exports.watch = watchFiles;

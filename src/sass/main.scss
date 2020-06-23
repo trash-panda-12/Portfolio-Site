@@ -1,5 +1,6 @@
 @import 'fonts';
 @import 'color';
+@import 'spacing';
 
 *{
     margin:0;
@@ -135,6 +136,8 @@ body {
          border-bottom:solid 1px #ffffff;
          width:130px;
          text-align:center;
+         list-style:none;
+         transition: background-color 0.1s linear;
          h3 {
              color: $mainwhite;
              font-size: 0.8rem;
@@ -144,6 +147,11 @@ body {
              vertical-align:center;
 
             
+         }
+
+         &:hover {
+             background-color:rgba(255,255,255,0.25);
+             transition: background-color 0.1s linear;
          }
      }
 
@@ -162,4 +170,105 @@ body {
  }
 
 
- @import 'about'
+
+
+
+
+
+
+
+
+
+//About section
+
+
+.about-card {
+    background-color:rgba(27, 31, 34, 0.85);
+    border-radius: 5px;
+    padding:1.5rem 3rem;
+    max-width:40rem;
+    width:50vw
+
+}
+
+.closeIcon {
+    
+    border-radius:50%;
+    transform: translate(2rem, -0.5rem);
+    
+    width:40px;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-left:auto;
+
+    &:hover {
+        background-color:rgba(255, 255, 255, 0.075);
+    }
+
+    img {
+        width:20px;
+        height:20px;
+        margin:auto;
+    }
+} 
+
+.card-title {
+    
+    display:inline-block;
+    border-bottom: solid 2px #ffffff;
+    letter-spacing:6px;
+    padding-bottom:5px;
+    margin-bottom:$card-bottom-spacing;
+    
+    
+    h2 {
+        color:$mainwhite;
+        font-size:1.6rem;
+        text-transform:uppercase;
+        text-align:center;
+    }
+}
+
+.main-image {
+    border-radius:10px;
+    overflow:hidden;
+    height:20vh;
+    min-height:100px;
+    width:100%;
+    position:relative;
+    margin-bottom:$card-bottom-spacing;
+    
+    &::before {
+        content:"";
+        position:absolute;
+        z-index:3;
+        width:100%;
+        height:100%;
+        background-color:grey;
+    }
+}
+
+.card-text {
+    margin-bottom: $card-bottom-spacing;
+    p {
+        margin-bottom:$card-bottom-spacing/2;
+        color:$mainwhite;
+        font-weight:300;
+        line-height:130%;
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
