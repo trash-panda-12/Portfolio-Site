@@ -1,0 +1,165 @@
+@import 'fonts';
+@import 'color';
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+body {
+    font-family: $mainFont; 
+    -webkit-font-smoothing:auto;
+}
+
+.main-container {
+    height:100vh;
+    width:100%;
+    position:relative;
+    
+}
+
+.background-image {
+ background: url("../images/background2_optimized.jpg");
+ position:absolute;
+ z-index:-444;
+ background-size: cover;
+ background-repeat:no-repeat;
+ width:100%;
+ height:100%;
+
+}
+
+.background-image::after{
+    content:"";
+    background-color:rgba(0,0,0,0.7);
+    position:absolute;
+    z-index:-5;
+    height:100%;
+    width:100%;
+   
+}
+
+.flex-container {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:100%;
+    width:100%;
+    padding:2rem;
+    
+}
+
+.header {
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.logo{
+    margin:1rem auto 0 auto;
+    border-radius:100%;
+    padding:20px;
+    border: solid 2px $mainwhite;
+    
+    span {
+        font-size:2rem;
+        font-weight:400;
+        color:$mainwhite;
+    }
+}
+
+.connector{
+    height:3rem;
+    background-color:$mainwhite;
+    width:2px;
+    margin:0 auto;
+}
+
+.main-header {
+    
+    border-top: solid 2px $mainwhite;
+    border-bottom:solid 2px $mainwhite;
+    padding:2.5rem;
+    
+
+    h1 {
+        font-size:2.5rem;
+        text-align:center;
+        color: $mainwhite;
+        letter-spacing:5px;
+        font-weight:600;
+    }
+    span{
+        color:$mainwhite;
+        display:block;
+        margin:0 auto;
+        text-transform:uppercase;
+        text-align:center;
+        letter-spacing:4px;
+        font-size:1.1rem;
+    }
+
+    p {
+        width:85%;
+        text-align:center;
+        margin:1rem auto;
+        color:$mainwhite;
+        text-transform: uppercase;
+        font-weight:300;
+        display:block;
+        letter-spacing:2px;
+        max-width:50vw;
+        font-size:0.8rem;
+        line-height:150%;
+       
+    }
+
+}
+
+
+.menu-bar {
+    
+    margin:0 auto;
+   
+}
+
+ .menu-list{
+     display: flex;
+     justify-content: center;
+
+     li {
+         padding: 1rem 1.5rem;
+         border-left:solid 1px #ffffff;
+         border-top:solid 1px #ffffff;
+         border-bottom:solid 1px #ffffff;
+         width:130px;
+         text-align:center;
+         h3 {
+             color: $mainwhite;
+             font-size: 0.8rem;
+             text-transform:uppercase;
+             letter-spacing:3px;
+             font-weight:300;
+             vertical-align:center;
+
+            
+         }
+     }
+
+     li:first-child {
+        border-radius: 5px 0 0 5px;
+     }
+     li:last-child{
+         border-right: solid 1px #ffffff;
+         border-radius: 0 5px 5px 0
+     }
+
+ }
+
+ .hidden {
+     display:none;
+ }
+
+
+ @import 'about'
