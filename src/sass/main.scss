@@ -1,6 +1,8 @@
 @import 'fonts';
 @import 'color';
 @import 'spacing';
+@import 'effects';
+@import 'animations';
 
 *{
     margin:0;
@@ -19,21 +21,42 @@ body {
     position:relative;
     
 }
+.background-container {
+    position:absolute;
+    overflow:hidden;
+    width:100%;
+    height: 100%;
+    z-index:-1
+}
+
+.background-container::before {
+    content:'';
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: -333;
+    background-color:#000000;
+    z-index:-999
+}
 
 .background-image {
+
  background: url("../images/background2_optimized.jpg");
- position:absolute;
+ position:fixed;
  z-index:-444;
  background-size: cover;
  background-repeat:no-repeat;
  width:100%;
  height:100%;
-
+ transform: scale(1.2);
+ opacity:0;
+ 
 }
 
 .background-image::after{
     content:"";
-    background-color:rgba(0,0,0,0.7);
+    background-color:rgba(0,0,0,0.5);
     position:absolute;
     z-index:-5;
     height:100%;
@@ -67,6 +90,7 @@ body {
         font-size:2rem;
         font-weight:400;
         color:$mainwhite;
+        user-select:none;
     }
 }
 
@@ -81,10 +105,10 @@ body {
     
     border-top: solid 2px $mainwhite;
     border-bottom:solid 2px $mainwhite;
-    padding:2.5rem;
-    
+    overflow:hidden;
 
     h1 {
+        padding-top:2.5rem;
         font-size:2.5rem;
         text-align:center;
         color: $mainwhite;
@@ -109,12 +133,30 @@ body {
         text-transform: uppercase;
         font-weight:300;
         display:block;
-        letter-spacing:2px;
+        letter-spacing:3px;
         max-width:50vw;
-        font-size:0.8rem;
+        font-size:1.2rem;
         line-height:150%;
-       
+        padding-bottom:2.5rem;
+        
+        
+
+        
     }
+
+    .changing-text {
+        &::after {
+            content:'';
+            width:1px;
+            position:absolute;
+            height: 1.6rem;
+            border-right:solid 1px #fff;
+            animation: blink 0.8s infinite steps(2,jump-end) ;
+
+        }
+    }
+
+    
 
 }
 
@@ -138,6 +180,7 @@ body {
          text-align:center;
          list-style:none;
          transition: background-color 0.1s linear;
+         cursor: pointer;
          h3 {
              color: $mainwhite;
              font-size: 0.8rem;
@@ -145,9 +188,9 @@ body {
              letter-spacing:3px;
              font-weight:300;
              vertical-align:center;
-
-            
+             user-select:none;   
          }
+
 
          &:hover {
              background-color:rgba(255,255,255,0.25);
@@ -182,16 +225,16 @@ body {
 //About section
 
 
-.about-card {
+.card {
     background-color:rgba(27, 31, 34, 0.85);
     border-radius: 5px;
     padding:1.5rem 3rem;
     max-width:40rem;
-    width:50vw
-
+    width:80%;
+    display:none;
 }
 
-.closeIcon {
+.close-icon {
     
     border-radius:50%;
     transform: translate(2rem, -0.5rem);
@@ -234,7 +277,7 @@ body {
 .main-image {
     border-radius:10px;
     overflow:hidden;
-    height:20vh;
+    height:24vh;
     min-height:100px;
     width:100%;
     position:relative;
@@ -243,6 +286,10 @@ body {
     &::before {
         content:"";
         position:absolute;
+        background:url("/src/images/duck.jpg");
+        background-position-y: 28%;
+        background-size: cover;
+        background-repeat:no-repeat;
         z-index:3;
         width:100%;
         height:100%;
@@ -263,8 +310,16 @@ body {
 
 
 
+//Work Section
 
+.work-card {
+    background-color: rgba(27, 31, 34, 0.85);
+    border-radius: 5px;
+    padding: 1.5rem 3rem;
+    max-width: 40rem;
+    width: 80%;
 
+}
 
 
 
