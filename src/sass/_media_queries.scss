@@ -1,0 +1,49 @@
+
+
+@media only screen and (max-width:580px) {
+    .menu-list {
+        flex-direction:column;
+        li {
+            border-left:solid 1px #ffffff;
+            border-right:solid 1px #ffffff;
+            border-radius:0; 
+        }
+
+        li:first-child {
+            border-radius: 5px 5px 0 0;
+        }
+
+        li:last-child {
+            border-right: solid 1px #ffffff;
+            border-radius: 0 0 5px 5px
+        }
+    }
+
+
+    .flex-container{
+        padding:1rem 0;
+    }
+}
+
+@media only screen and (max-width:500px){
+    .card-text{
+        p{
+            font-size:1rem;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width:822px) {
+    .tech-stack {
+
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+        padding:1rem;
+        img {
+            width:80%;
+            max-width: 120px;
+            margin:10px;
+        }
+    }
+}

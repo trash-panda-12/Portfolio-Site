@@ -1,3 +1,25 @@
+.unzoom {
+  transform: scale(1.1) !important;
+  transition: all 0.8s linear;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,27 +29,48 @@
 body {
   font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: auto;
+  background-color: black;
 }
 
 .main-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: relative;
 }
 
-.background-image {
-  background: url("../images/background2_optimized.jpg");
+.background-container {
   position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -333;
+  background-color: #000000;
+  z-index: -999;
+}
+
+.background-image {
+  background: url("../images/elle.jpg");
+  position: fixed;
   z-index: -444;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  transform: scale(1.2);
+  opacity: 0;
 }
 
 .background-image::after {
   content: "";
-  background-color: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to top, rgba(19, 21, 25, 0.6), rgba(19, 21, 25, 0.1));
   position: absolute;
   z-index: -5;
   height: 100%;
@@ -59,6 +102,14 @@ body {
   font-size: 2rem;
   font-weight: 400;
   color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.logo img {
+  width: 20vw;
+  max-width: 70px;
 }
 
 .connector {
@@ -71,9 +122,10 @@ body {
 .main-header {
   border-top: solid 2px white;
   border-bottom: solid 2px white;
-  padding: 2.5rem;
+  overflow: hidden;
 }
 .main-header h1 {
+  padding-top: 2.5rem;
   font-size: 2.5rem;
   text-align: center;
   color: white;
@@ -97,10 +149,23 @@ body {
   text-transform: uppercase;
   font-weight: 300;
   display: block;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   max-width: 50vw;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   line-height: 150%;
+  padding-bottom: 2.5rem;
+}
+.main-header .changing-text::after {
+  opacity: 0;
+  content: "";
+  width: 1px;
+  position: absolute;
+  height: 1.6rem;
+  border-right: solid 1px #fff;
+  -webkit-animation: blink 0.8s infinite steps(2, jump-end);
+          animation: blink 0.8s infinite steps(2, jump-end);
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .menu-bar {
@@ -120,6 +185,7 @@ body {
   text-align: center;
   list-style: none;
   transition: background-color 0.1s linear;
+  cursor: pointer;
 }
 .menu-list li h3 {
   color: white;
@@ -128,6 +194,10 @@ body {
   letter-spacing: 3px;
   font-weight: 300;
   vertical-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .menu-list li:hover {
   background-color: rgba(255, 255, 255, 0.25);
@@ -145,15 +215,16 @@ body {
   display: none;
 }
 
-.about-card {
+.card {
   background-color: rgba(27, 31, 34, 0.85);
   border-radius: 5px;
   padding: 1.5rem 3rem;
   max-width: 40rem;
-  width: 50vw;
+  width: 80%;
+  display: none;
 }
 
-.closeIcon {
+.close-icon {
   border-radius: 50%;
   transform: translate(2rem, -0.5rem);
   width: 40px;
@@ -163,10 +234,10 @@ body {
   align-items: center;
   margin-left: auto;
 }
-.closeIcon:hover {
+.close-icon:hover {
   background-color: rgba(255, 255, 255, 0.075);
 }
-.closeIcon img {
+.close-icon img {
   width: 20px;
   height: 20px;
   margin: auto;
@@ -189,7 +260,7 @@ body {
 .main-image {
   border-radius: 10px;
   overflow: hidden;
-  height: 20vh;
+  height: 24vh;
   min-height: 100px;
   width: 100%;
   position: relative;
@@ -198,6 +269,10 @@ body {
 .main-image::before {
   content: "";
   position: absolute;
+  background: url("/src/images/ducks.jpg");
+  background-position-y: 28%;
+  background-size: cover;
+  background-repeat: no-repeat;
   z-index: 3;
   width: 100%;
   height: 100%;
@@ -209,7 +284,110 @@ body {
 }
 .card-text p {
   margin-bottom: 1rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: 300;
   line-height: 130%;
+}
+
+.work-card {
+  background-color: rgba(27, 31, 34, 0.85);
+  box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 1.5rem 3rem;
+  max-width: 40rem;
+  width: 80%;
+}
+
+.preloader {
+  width: 100%;
+  height: 100vh;
+  -webkit-clip-path: circle(0% at -40% -40%);
+          clip-path: circle(0% at -40% -40%);
+  background: black;
+  box-shadow: 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+.tech-stack {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-gap: 30px 1rem;
+  justify-items: center;
+  align-items: center;
+}
+.tech-stack img {
+  width: 80%;
+  max-width: 120px;
+  max-height: 110px;
+  -webkit-filter: saturate(0.6);
+          filter: saturate(0.6);
+  opacity: 0.8;
+  transition: all 0.2s ease-in;
+}
+.tech-stack img:hover {
+  -webkit-filter: none;
+          filter: none;
+  opacity: 1;
+  transform: translateY(-5px) scale(1.1);
+  transition: all 0.2s ease-in;
+}
+
+.contact h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.link-list ul {
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+.link-list li {
+  list-style: none;
+  margin: 3rem 2rem 2rem 2rem;
+}
+.link-list li img {
+  width: 50px;
+}
+
+@media only screen and (max-width: 580px) {
+  .menu-list {
+    flex-direction: column;
+  }
+  .menu-list li {
+    border-left: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+    border-radius: 0;
+  }
+  .menu-list li:first-child {
+    border-radius: 5px 5px 0 0;
+  }
+  .menu-list li:last-child {
+    border-right: solid 1px #ffffff;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .flex-container {
+    padding: 1rem 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card-text p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 822px) {
+  .tech-stack {
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    padding: 1rem;
+  }
+  .tech-stack img {
+    width: 80%;
+    max-width: 120px;
+    margin: 10px;
+  }
 }

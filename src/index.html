@@ -11,10 +11,16 @@
 </head>
 <body>
 
+    <div class="preloader">
+
+    
+
+    
     <div class="main-container">
 
-        <div class="background-image">
-
+        <div class="background-container">
+            <div class="background-image">
+            </div>
         </div>
 
 
@@ -22,7 +28,8 @@
 
             <header class="header">
                 <div class="logo">
-                    <span>&#xCA1;&#x5F;&#xCA1;</span>
+                    <img src="images/logo.png" alt="">
+                    <!-- <span>&#xCA1;&#x5F;&#xCA1;</span> -->
                 </div>
 
                  <div class="connector"></div>
@@ -31,7 +38,7 @@
 
                     <h1>DAVID SUMNER</h1>
                     <span>Web Developer</span>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis minima ipsum dicta doloremque,</p>
+                    <p class="changing-text"> </p>
 
 
                 </div>
@@ -41,19 +48,19 @@
                 <!-- Menu bar -->
                 <div class="menu-bar">
                     <ul class="menu-list">
-                        <li>
+                        <li class="about">
                             <h3>About</h3>
                         </li>
 
-                        <li>
-                            <h3>Work</h3>
+                        <li class="work">
+                            <h3>Projects</h3>
                         </li>
 
-                        <li>
+                        <li class="tech">
                             <h3>Tech</h3>
                         </li>
 
-                        <li>
+                        <li class="contact">
                             <h3>Contact</h3>
                         </li>
                     </ul>
@@ -61,9 +68,8 @@
             </header>
 
             <!-- About Section Card -->
-
-            <div class="about-card hidden">
-                <div class="closeIcon">
+            <div class="card" id="about">
+                <div class="close-icon">
                     <img src="images/x-svg.svg" alt="">
                 </div>
 
@@ -77,18 +83,115 @@
 
                 <div class="card-text">
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus commodi culpa error!
+                        Hey, I'm David, an avid front-end developer who enjoys taking on new
+                        challenges and is always looking for ways to improve. I value critical thinking, punctuality and
+                        attention to detail.
                     </p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio consequuntur autem illo at asperiores quibusdam!</p>
-
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime exercitationem eius enim culpa omnis quo officia animi illum asperiores minima. Quisquam quis accusamus optio sequi accusantium dolor quibusdam numquam pariatur ea vero qui repudiandae quod, perferendis quam natus a laboriosam iusto ullam, atque maiores est voluptatem impedit sit animi. Quae sequi illo earum consequuntur sit?</p>
+                    <p>
+                        The journey from never writing a line of code to self-learning enough to be an employed web developer has been a crazy one, and i'm still planning on learning more!
+                    </p>
+                    
+                    
                 </div>
 
             </div>
 
 
+            <!-- Work Card  -->
+            <div class="card" id="work">
+                <div class="close-icon">
+                    <img src="images/x-svg.svg" alt="">
+                </div>
+            
+                <div class="card-title">
+                    <h2>Work</h2>
+                </div>
+            
+                
+            
+                <div class="card-text">
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus commodi culpa error!
+                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio consequuntur autem illo at asperiores
+                        quibusdam!</p>
+                </div>
+            
+            </div>
+
+
+
+
+            <!-- Tech Card -->
+            <div class="card" id="tech">
+                <div class="close-icon">
+                    <img src="images/x-svg.svg" alt="">
+                </div>
+            
+                <div class="card-title">
+                    <h2>Current Tech Used</h2>
+                </div>
+            
+                <div class="tech-stack">
+                    <img src="images/tech-logos/html5.svg" alt="">
+                    <img src="images/tech-logos/css-3.svg" alt="">
+                    <img src="images/tech-logos/javascript.svg" alt="">
+                    <img src="images/tech-logos/php.svg" alt="">
+                    <img src="images/tech-logos/sass-1.svg" alt="">
+                    <img src="images/tech-logos/wordpress-blue.svg" alt="">
+                    <img src="images/tech-logos/gulp.svg" alt="">
+                    <img src="images/tech-logos/git.png" alt="">
+
+                    <img src="images/tech-logos/node-white.svg" alt="">
+                    <img src="images/tech-logos/express.svg" alt="">
+                    <img src="images/tech-logos/mongodb2.svg" alt="">
+                </div>
+            
+            </div>
+
+
+
+
+            <!-- Contact Card -->
+
+            <div class="card" id="contact">
+                <div class="close-icon">
+                    <img src="images/x-svg.svg" alt="">
+                </div>
+            
+                <div class="card-title">
+                    <h2>Feel free to get in touch</h2>
+                </div>
+            
+                
+            
+                <div class="card-text contact">
+
+                    <div class="link-list">
+                        <ul class="links">
+                            <li class="github">
+                                <a href="https://github.com/Sumner-David"><img src="images/gitHub-white.svg" alt=""></a>
+                            </li>
+                            <li class="email">
+                                <a href="mailto:davidphilipsumner@gmail.com"><img src="images/email.svg" alt=""></a>
+                            </li>
+                            <li class="linkedIn">
+                                <a href="https://www.linkedin.com/in/david-sumner-30a004176/"><img
+                                        src="images/linkedin.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            
+            </div>
+
+            
+
         </div>
+    </div>
+
     </div>
 
 

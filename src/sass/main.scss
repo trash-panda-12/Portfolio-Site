@@ -13,10 +13,11 @@
 body {
     font-family: $mainFont; 
     -webkit-font-smoothing:auto;
+    background-color: black;
 }
 
 .main-container {
-    height:100vh;
+    height:100%;
     width:100%;
     position:relative;
     
@@ -32,7 +33,7 @@ body {
 .background-container::before {
     content:'';
     position: absolute;
-    overflow: hidden;
+    
     width: 100%;
     height: 100%;
     z-index: -333;
@@ -42,7 +43,7 @@ body {
 
 .background-image {
 
- background: url("../images/background2_optimized.jpg");
+ background: url("../images/elle.jpg");
  position:fixed;
  z-index:-444;
  background-size: cover;
@@ -56,7 +57,7 @@ body {
 
 .background-image::after{
     content:"";
-    background-color:rgba(0,0,0,0.5);
+    background:linear-gradient(to top, rgba(19, 21, 25, 0.6), rgba(19, 21, 25, 0.1));
     position:absolute;
     z-index:-5;
     height:100%;
@@ -91,6 +92,11 @@ body {
         font-weight:400;
         color:$mainwhite;
         user-select:none;
+    }
+
+    img {
+        width:20vw;
+        max-width:70px;
     }
 }
 
@@ -140,18 +146,23 @@ body {
         padding-bottom:2.5rem;
         
         
+        
 
         
     }
 
+    
+
     .changing-text {
         &::after {
+            opacity:0;
             content:'';
             width:1px;
             position:absolute;
             height: 1.6rem;
             border-right:solid 1px #fff;
             animation: blink 0.8s infinite steps(2,jump-end) ;
+            animation-delay:1s;
 
         }
     }
@@ -286,7 +297,7 @@ body {
     &::before {
         content:"";
         position:absolute;
-        background:url("/src/images/duck.jpg");
+        background:url("/src/images/ducks.jpg");
         background-position-y: 28%;
         background-size: cover;
         background-repeat:no-repeat;
@@ -301,10 +312,10 @@ body {
     margin-bottom: $card-bottom-spacing;
     p {
         margin-bottom:$card-bottom-spacing/2;
+        font-size:1.2rem;
         color:$mainwhite;
         font-weight:300;
         line-height:130%;
-
     }
 }
 
@@ -314,6 +325,7 @@ body {
 
 .work-card {
     background-color: rgba(27, 31, 34, 0.85);
+    box-shadow: 5px 5px 40px rgba(0,0,0,0.5);
     border-radius: 5px;
     padding: 1.5rem 3rem;
     max-width: 40rem;
@@ -322,8 +334,74 @@ body {
 }
 
 
+.preloader {
+    width:100%;
+    height:100vh;
+    clip-path: circle(0% at -40% -40%);
+    background: rgb(0, 0, 0);
+    box-shadow : 5px rgba(0,0,0,0.5);
+    position:absolute;
+    top:0%;
+    right:0%;
+    
+}
+
+.tech-stack {
+    width:100%;
+    
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem,1fr));
+    grid-gap: 30px 1rem;
+    justify-items:center;
+    align-items: center;
+    img {
+        width:80%;
+        max-width:120px;
+        max-height:110px;
+        filter: saturate(0.6);
+        opacity:0.8;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            filter:none;
+            opacity:1;
+            transform: translateY(-5px) scale(1.1);
+            transition: all 0.2s ease-in;
+        }
+    }
+}
+
+.contact {
+    h2 {
+        color:#ffffff;
+        text-align:center;
+    }
+}
+
+.link-list {
+    ul {
+        display:flex;
+        justify-content: center;
+        vertical-align:center;
+        
+    }
+
+    li {
+        list-style:none;
+        margin: 3rem 2rem 2rem 2rem;
+        img {
+            width:50px;
+        }
+    }
+}
 
 
 
 
 
+
+
+
+
+
+@import 'media_queries';
