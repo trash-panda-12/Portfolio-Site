@@ -6,3 +6,12 @@
         opacity:1;
     }
 }
+
+@keyframes preLoader {
+    0% {
+        clip-path: circle(0% at -40% -40%)
+    }
+    100% {
+        clip-path: circle(300% at 10% 10%)
+    }
+}

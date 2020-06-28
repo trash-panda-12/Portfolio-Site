@@ -47,17 +47,19 @@ const preloader = document.querySelector('.preloader');
 
 
 //Preloader Code
-const preloaderStart = function() {
+// const preloaderStart = function() {
     
-    // gsap.to(preloader, 0.8, {webkitClipPath: "circle(150% at 10% 10%)"});
+//     // gsap.to(preloader, 0.8, {webkitClipPath: "circle(150% at 10% 10%)"});
 
-    gsap.fromTo(preloader, 0.8, {
-        webkitClipPath: "circle(0% at -40% -40%)"
-    }, {
-        webkitClipPath:'circle(250% at 10% 10%)'
-    })
+//     // gsap.fromTo(preloader, 0.8, {
+//     //     webkitClipPath: "circle(0% at -40% -40%)"
+//     // }, {
+//     //     webkitClipPath:'circle(250% at 10% 10%)'
+//     // })
+
+//     // preloader.classList.style.animation = 'preLoader 0.8s'
     
-};
+// };
 
 
 //Handles starting animation of header and background
@@ -70,7 +72,7 @@ const startupHeader =  function() {
 
         const tl = new gsap.timeline;
         tl.to(mainHeader, {height:trueHeight,duration:0.7, ease:'power1.out'});
-        tl.fromTo(mainHeader.children, { y:'-30',opacity:0},{y:0,opacity:'100%', duration:0.5},"-=0.5");
+        tl.fromTo(mainHeader.firstChild, { y:'-30',opacity:0},{y:0,opacity:'100%', duration:0.5},"-=0.5");
         tl.to(background, {opacity:'1', duration:3,ease:"none"})
     }, 800);
 
@@ -84,7 +86,8 @@ const hideHeader = function () {
 
     blurBackground();
 
-    gsap.to(headerSection, 0.3, {scale: 0.90, opacity: 0, onComplete: function(){
+    gsap.to(headerSection, 0.3, {
+        rotation: 0.01, scale: 0.90, opacity: 0, onComplete: function(){
         headerSection.style.display = 'none'
     }});
 };
@@ -96,20 +99,20 @@ const showHeader = function(){
 
     headerSection.style.display = 'flex';
     
-    gsap.fromTo(headerSection, 0.4, {scale:0.8, opacity:'0%'} ,{scale: 1, opacity: '100%'});
+    gsap.fromTo(headerSection, 0.4, { rotation: 0.01, scale: 0.8, opacity: '0%' }, { scale: 1, opacity: '100%', rotation: 0.01});
 };
 
 
 //Shows Cards
 const showCard = function(cardSelected){
 
-    gsap.fromTo(cardSelected, 0.4, {display:'block', opacity:0, scale:'1' }, {display:'block', opacity:'100%', scale:'1'});
+    gsap.fromTo(cardSelected, 0.4, { rotation: 0.01, display: 'block', opacity: 0, scale: '1' }, { rotation: 0.01, display:'block', opacity:'100%', scale:'1'});
 };
 
 //Hides Cards
 const hideCard = function(cardSelected){
 
-    gsap.to(cardSelected, 0.3, {scale:1, opacity:0,  onComplete: function(){
+    gsap.to(cardSelected, 0.3, {rotation:0.01,scale:1, opacity:0,  onComplete: function(){
         cardSelected.style.display = "none"
     }});
 };
@@ -185,7 +188,7 @@ const removeBlurBackground = function () {
 
 
 //Self typing section
-const phrases = ['The Cake is a Lie', 'Taking your ideas online', 'Hire this guy', 'Sometimes you just take the leap', 'No sleep, all coffee', 'Do or do not. There is no try']
+const phrases = ['The Cake is a Lie', 'Taking your ideas online', 'Hire this guy', 'Sometimes you just take the leap', 'Do or do not. There is no try']
 
 let count = 0;
 let index = 0;
@@ -226,7 +229,7 @@ setTimeout(() => {
 
 //Add event listeners and calls on page load here
 const app = function() {
-    preloaderStart();
+    // preloaderStart();
     startupHeader();
     eventListeners();
 };

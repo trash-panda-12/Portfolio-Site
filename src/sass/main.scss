@@ -336,12 +336,14 @@ body {
 .preloader {
     width:100%;
     height:100vh;
-    clip-path: circle(0% at -40% -40%);
-    background: rgb(0, 0, 0);
-    box-shadow : 5px rgba(0,0,0,0.5);
+    // clip-path: circle(0% at -40% -40%);
+    // background: rgb(0, 0, 0);
     position:absolute;
     top:0%;
     right:0%;
+    // animation: preLoader 0.8s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.3s;
     
 }
 
