@@ -9,6 +9,9 @@ const closeButtons = document.querySelectorAll('.close-icon');
 const background = document.querySelector('.background-image');
 const preloader = document.querySelector('.preloader');
 
+var FF = !(window.mozInnerScreenX == null);
+
+
 //Plugin to allow blur values for GSAP
 (function () {
     const blurProperty = gsap.utils.checkPrefix("filter"),
@@ -119,21 +122,42 @@ const hideCard = function(cardSelected){
 
 //Background Blurs
 const blurBackground = function () {
-    gsap.to(background, {
-        duration: 0.5,
-        scale: 1.1,
-        // blur: 1,
-        rotation: 0.1
-    })
+    
+
+    if (FF) {
+        gsap.to(background, {
+            duration: 0.5,
+            scale: 1.1,
+            rotation: 0.1
+        }) 
+    } else {
+        gsap.to(background, {
+            duration: 0.5,
+            scale: 1.1,
+            blur:2,
+            rotation: 0.1
+        })
+    }
 }
 
 const removeBlurBackground = function () {
-    gsap.to(background, {
-        duration: 0.5,
-        scale: 1.2,
-        // blur: 0,
-        rotation: 0.1
-    })
+    
+
+    if(FF) {
+        gsap.to(background, {
+            duration: 0.5,
+            scale: 1.2,
+            rotation: 0.1
+        })
+
+    }else {
+        gsap.to(background, {
+            duration: 0.5,
+            scale: 1.2,
+            blur: 0,
+            rotation: 0.1
+        })
+    }
 }
 
 
