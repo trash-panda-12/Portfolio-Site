@@ -82,7 +82,7 @@ body {
 }
 
 .logo{
-    margin:1rem auto 0 auto;
+    margin:0 auto 0 auto;
     border-radius:100%;
     padding:20px;
     border: solid 2px $mainwhite;
@@ -132,7 +132,7 @@ body {
     }
 
     p {
-        width:85%;
+        width:100%;
         text-align:center;
         margin:1rem auto;
         color:$mainwhite;
@@ -140,20 +140,19 @@ body {
         font-weight:300;
         display:block;
         letter-spacing:3px;
-        max-width:50vw;
+        max-width:55vw;
         font-size:1.2rem;
         line-height:150%;
         padding-bottom:2.5rem;
-        
-        
-        
-
         
     }
 
     
 
     .changing-text {
+        p {
+            text-align:center;
+        }
         &::after {
             opacity:0;
             content:'';
@@ -297,14 +296,14 @@ body {
     &::before {
         content:"";
         position:absolute;
-        background:url("/src/images/ducks.jpg");
+        background:url("../images/feeding.jpg");
         background-position-y: 28%;
         background-size: cover;
         background-repeat:no-repeat;
         z-index:3;
         width:100%;
         height:100%;
-        background-color:grey;
+        
     }
 }
 
@@ -357,7 +356,7 @@ body {
     img {
         width:80%;
         max-width:120px;
-        max-height:110px;
+        max-height:80px;
         filter: saturate(0.6);
         opacity:0.8;
         transition: all 0.2s ease-in;
