@@ -87,7 +87,7 @@ const hideHeader = function () {
     blurBackground();
 
     gsap.to(headerSection, 0.3, {
-        rotation: 0.01, scale: 0.90, opacity: 0, onComplete: function(){
+        rotation: 0.4, scale: 0.90, opacity: 0, onComplete: function(){
         headerSection.style.display = 'none'
     }});
 };
@@ -99,23 +99,42 @@ const showHeader = function(){
 
     headerSection.style.display = 'flex';
     
-    gsap.fromTo(headerSection, 0.4, { rotation: 0.01, scale: 0.8, opacity: '0%' }, { scale: 1, opacity: '100%', rotation: 0.01});
+    gsap.fromTo(headerSection, 0.4, { rotation:0.1, scale: 0.8, opacity: '0%' }, { scale: 1, opacity: '100%', rotation:0.1});
 };
 
 
 //Shows Cards
 const showCard = function(cardSelected){
 
-    gsap.fromTo(cardSelected, 0.4, { rotation: 0.01, display: 'block', opacity: 0, scale: '1' }, { rotation: 0.01, display:'block', opacity:'100%', scale:'1'});
+    gsap.fromTo(cardSelected, 0.4, { rotation:0.1, display: 'block', opacity: 0, scale: '1' }, { rotation:0.1, display:'block', opacity:'100%', scale:'1'});
 };
 
 //Hides Cards
 const hideCard = function(cardSelected){
 
-    gsap.to(cardSelected, 0.3, {rotation:0.01,scale:1, opacity:0,  onComplete: function(){
+    gsap.to(cardSelected, 0.3, {rotation:0.1,scale:1, opacity:0,  onComplete: function(){
         cardSelected.style.display = "none"
     }});
 };
+
+//Background Blurs
+const blurBackground = function () {
+    gsap.to(background, {
+        duration: 0.5,
+        scale: 1.1,
+        // blur: 1,
+        rotation: 0.1
+    })
+}
+
+const removeBlurBackground = function () {
+    gsap.to(background, {
+        duration: 0.5,
+        scale: 1.2,
+        // blur: 0,
+        rotation: 0.1
+    })
+}
 
 
 const eventListeners = function() {
@@ -166,22 +185,7 @@ const eventListeners = function() {
 };
 
 
-//Background Blurs
-const blurBackground = function() {
-    gsap.to(background,  {
-        duration:0.5,
-        scale: 1.1,
-        blur:2
-    })
-}
 
-const removeBlurBackground = function () {
-    gsap.to(background, {
-        duration: 0.5,
-        scale: 1.2,
-        blur: 0
-    })
-}
 
 
 
