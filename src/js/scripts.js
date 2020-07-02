@@ -8,7 +8,6 @@ const contactButton = document.querySelector('.contact');
 const closeButtons = document.querySelectorAll('.close-icon');
 const background = document.querySelector('.background-image');
 const preloader = document.querySelector('.preloader');
-
 var FF = !(window.mozInnerScreenX == null);
 
 
@@ -75,7 +74,7 @@ const startupHeader =  function() {
 
         const tl = new gsap.timeline;
         tl.to(mainHeader, {height:trueHeight,duration:0.7, ease:'power1.out'});
-        tl.fromTo(mainHeader.firstChild, { y:'-30',opacity:0},{y:0,opacity:'100%', duration:0.5},"-=0.5");
+        tl.fromTo(mainHeader.firstChild, { y:'-30px',opacity:'0%'},{y:0,opacity:'100%', duration:0.5},"-=0.5");
         tl.to(background, {opacity:'1', duration:3,ease:"none"})
     }, 800);
 
@@ -90,7 +89,7 @@ const hideHeader = function () {
     blurBackground();
 
     gsap.to(headerSection, 0.3, {
-        rotation: 0.4, scale: 0.90, opacity: 0, onComplete: function(){
+        rotation: 0.4, scale: 0.90, opacity: '0%', onComplete: function(){
         headerSection.style.display = 'none'
     }});
 };
@@ -109,13 +108,14 @@ const showHeader = function(){
 //Shows Cards
 const showCard = function(cardSelected){
 
-    gsap.fromTo(cardSelected, 0.4, { rotation:0.1, display: 'block', opacity: 0, scale: '1' }, { rotation:0.1, display:'block', opacity:'100%', scale:'1'});
+    
+    gsap.fromTo(cardSelected, 0.4, { rotation:0.1, display: 'block', opacity: '0%', scale: '1' }, { rotation:0.1, display:'block', opacity:'100%', scale:'1'});
 };
 
 //Hides Cards
 const hideCard = function(cardSelected){
 
-    gsap.to(cardSelected, 0.3, {rotation:0.1,scale:1, opacity:0,  onComplete: function(){
+    gsap.to(cardSelected, 0.3, {rotation:0.1,scale:1, opacity:'0%',  onComplete: function(){
         cardSelected.style.display = "none"
     }});
 };
@@ -134,7 +134,7 @@ const blurBackground = function () {
         gsap.to(background, {
             duration: 0.5,
             scale: 1.1,
-            blur:2,
+            // blur:2,
             rotation: 0.1
         })
     }
@@ -154,7 +154,7 @@ const removeBlurBackground = function () {
         gsap.to(background, {
             duration: 0.5,
             scale: 1.2,
-            blur: 0,
+            // blur: 0,
             rotation: 0.1
         })
     }
@@ -206,6 +206,8 @@ const eventListeners = function() {
             }, 300);
         })
     });
+
+    
 };
 
 
@@ -216,7 +218,7 @@ const eventListeners = function() {
 
 
 //Self typing section
-const phrases = ['The Cake is a Lie', 'Taking your ideas online', 'Hire this guy', 'Sometimes you just take the leap', 'Do or do not. There is no try']
+const phrases = ['The Cake is a Lie', 'Taking your idea online', 'Take the leap', 'Do or do not. There is no try', 'always be learning', 'Keep working on it']
 
 let count = 0;
 let index = 0;
